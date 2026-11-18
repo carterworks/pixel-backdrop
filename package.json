@@ -1,6 +1,6 @@
 {
   "name": "@carterworks/pixel-backdrop",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A live pixel-grid backdrop: canvas toys shown through an emulated LCD.",
   "type": "module",
   "license": "MIT",
