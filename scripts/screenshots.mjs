@@ -10,7 +10,7 @@ const SHOTS = [
 ];
 
 const root = join(import.meta.dirname, "..");
-const types = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css" };
+const types = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json" };
 const server = createServer(async (req, res) => {
   const path = join(root, new URL(req.url, "http://x").pathname.replace(/\/$/, "/index.html"));
   try {
