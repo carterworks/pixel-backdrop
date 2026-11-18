@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>pixel-backdrop</title>
+    <meta
+      name="description"
+      content="A live pixel-grid backdrop: canvas toys shown through an emulated LCD."
+    />
+    <link rel="stylesheet" href="pixel-backdrop.css" />
+    <style>
+      :root {
+        --base: #f4f4f2;
+        --ink: #8a8a99;
+        --backdrop-page-color: var(--base);
+        color-scheme: light dark;
+      }
+      body {
+        background: var(--base);
+        color: var(--ink);
+        font: 15px/1.5 ui-monospace, Menlo, monospace;
+        margin: 0;
+      }
+      main {
+        background: var(--base);
+        box-sizing: border-box;
+        margin: 15vh auto;
+        max-inline-size: min(22rem, calc(100vw - 2rem));
+        padding: 1.25rem 1.5rem;
+        position: relative;
+      }
+      h1 {
+        font-size: inherit;
+        margin: 0;
+      }
+      p {
+        margin: 0 0 1rem;
+      }
+      label {
+        display: flex;
+        justify-content: space-between;
+        margin-block: 0.25rem;
+      }
+      select,
+      a {
+        color: inherit;
+        font: inherit;
+      }
+      select {
+        background: transparent;
+        border: 1px solid currentColor;
+      }
+      code {
+        display: block;
+        margin-block: 1rem;
+        user-select: all;
+      }
+    </style>
+  </head>
+  <body>
+    <pixel-backdrop aria-hidden="true">
+      <emulated-canvas
+        data-width="160"
+        data-height="160"
+        data-fit="viewport"
+      ></emulated-canvas>
+    </pixel-backdrop>
+
+    <main>
+      <h1>pixel-backdrop</h1>
+      <p>Canvas toys on an emulated LCD.</p>
+      <label>Toy <select id="toy"></select></label>
+      <label>Display <select id="display"></select></label>
+      <label>Shape <select id="shape"></select></label>
+      <code>npm i @carterworks/pixel-backdrop</code>
+      <a href="https://github.com/carterworks/pixel-backdrop">GitHub</a>
+    </main>
+
+    <script type="module">
+      import { TOYS } from "./dist/backdrop-toys/index.js";
+      import { SHAPES } from "./dist/emulated-canvas/element.js";
+
+      const DISPLAYS = {
+        light: { base: "#f4f4f2", ink: "#8a8a99" },
+        dark: { base: "#141414", ink: "#6e6e7a" },
+        panel: {
+          base: "#889d58",
+          ink: "#263c2b",
+          look: {
+            grid: "#0000000a",
+            levels: 4,
+            gap: 2,
+            ghostRise: 45,
+            ghostFall: 30,
+            shadow: { opacity: 25, x: 4, y: 4 },
+          },
+        },
+        backlit: {
+          base: "#f89b03",
+          ink: "#3c070d",
+          look: {
+            vignette: { clear: 33, edge: "#e6d3d3" },
+            levels: 4,
+            dither: true,
+            gap: 1,
+            ghostRise: 86,
+            ghostFall: 76,
+          },
+        },
+        graded: {
+          base: "#04070a",
+          ink: "#f2fdff",
+          look: {
+            stops: ["#0a3346", "#11a6d8", "#7fe6ff"],
+            levels: 5,
+            gap: 2,
+            ghostRise: 40,
+            ghostFall: 65,
+          },
+        },
+      };
+
+      const backdrop = document.querySelector("pixel-backdrop");
+      const [toy, display, shape] = ["toy", "display", "shape"].map((id) =>
+        document.getElementById(id),
+      );
+      const fill = (select, entries) =>
+        select.append(...entries.map(([value, label]) => new Option(label, value)));
+
+      fill(toy, TOYS.map(({ id, label }) => [id, label]));
+      fill(display, Object.keys(DISPLAYS).map((name) => [name, name]));
+      fill(shape, SHAPES.map((name) => [name, name]));
+
+      const show = (name) => {
+        const { base, ink } = DISPLAYS[name];
+        document.documentElement.style.setProperty("--base", base);
+        document.documentElement.style.setProperty("--ink", ink);
+        backdrop.display = DISPLAYS[name];
+      };
+      show(display.value);
+
+      toy.onchange = () => backdrop.setToy(toy.value);
+      display.onchange = () => show(display.value);
+      shape.onchange = () => backdrop.configure({ shape: shape.value });
+
+      await import("./dist/pixel-backdrop/element.js");
+    </script>
+  </body>
+</html>
