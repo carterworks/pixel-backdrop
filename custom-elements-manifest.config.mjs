@@ -4,8 +4,9 @@ export default {
   plugins: [
     {
       // The analyzer lists #private members too, which no consumer can reach,
-      // and modules in the order the file system returns them, which differs
-      // between machines.
+      // modules in the order the file system returns them, which differs
+      // between machines, and the TypeScript source rather than the shipped
+      // JavaScript.
       name: "tidy",
       packageLinkPhase({ customElementsManifest }) {
         customElementsManifest.modules.sort((a, b) =>
@@ -18,6 +19,12 @@ export default {
             );
           }
         }
+        const shipped = JSON.parse(
+          JSON.stringify(customElementsManifest.modules)
+            .replace(/"src\/([^"]+)\.ts"/g, '"dist/$1.js"')
+            .replace(/"(\.{1,2}\/[^"]+)\.ts"/g, '"$1.js"'),
+        );
+        customElementsManifest.modules = shipped;
       },
     },
   ],

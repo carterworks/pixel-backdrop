@@ -27,7 +27,7 @@ export function backdropDefaults(): [string, string][] {
  * `file: property`. A `var(--backdrop-*)` reads one, so isn't among them.
  */
 export function backdropDeclarations(): string[] {
-  return globSync("**/*.css", { cwd: root }).flatMap((file) =>
+  return globSync("**/*.css", { cwd: root, exclude: ["node_modules/**"] }).flatMap((file) =>
     [...readStyles(file).matchAll(/(--backdrop-[\w-]+)\s*:/g)].map(
       ([, property]) => `${file}: ${property}`,
     ),

@@ -1,29 +1,54 @@
 {
   "name": "@carterworks/pixel-backdrop",
   "version": "0.1.0",
-  "description": "A live pixel-grid backdrop: generic canvas toys shown through an emulated LCD canvas.",
+  "description": "A live pixel-grid backdrop: canvas toys shown through an emulated LCD.",
   "type": "module",
-  "private": true,
   "license": "MIT",
+  "author": "Carter McBride",
+  "homepage": "https://carterworks.github.io/pixel-backdrop/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/carterworks/site.git",
-    "directory": "packages/pixel-backdrop"
+    "url": "git+https://github.com/carterworks/pixel-backdrop.git"
   },
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "canvas",
+    "pixel-art",
+    "lcd"
+  ],
   "customElements": "custom-elements.json",
+  "files": [
+    "dist",
+    "pixel-backdrop.css",
+    "custom-elements.json"
+  ],
   "exports": {
-    ".": "./src/pixel-backdrop/element.ts",
-    "./emulated-canvas": "./src/emulated-canvas/element.ts",
-    "./toys": "./src/backdrop-toys/index.ts",
-    "./toys/*": "./src/backdrop-toys/*.ts",
-    "./landscape": "./src/lib/landscape.ts",
+    ".": "./dist/pixel-backdrop/element.js",
+    "./emulated-canvas": "./dist/emulated-canvas/element.js",
+    "./toys": "./dist/backdrop-toys/index.js",
+    "./toys/*": "./dist/backdrop-toys/*.js",
+    "./landscape": "./dist/lib/landscape.js",
     "./pixel-backdrop.css": "./pixel-backdrop.css",
     "./custom-elements.json": "./custom-elements.json"
   },
   "scripts": {
-    "analyze": "cem analyze --quiet"
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "analyze": "cem analyze --quiet",
+    "check": "tsc",
+    "test": "vitest run",
+    "screenshots": "pnpm build && node scripts/screenshots.mjs",
+    "verify": "pnpm check && pnpm test && pnpm analyze && git diff --exit-code -- custom-elements.json",
+    "prepublishOnly": "pnpm verify && pnpm build"
   },
   "devDependencies": {
-    "@custom-elements-manifest/analyzer": "0.11.0"
-  }
+    "@custom-elements-manifest/analyzer": "0.11.0",
+    "@types/node": "25.9.3",
+    "happy-dom": "21.0.4",
+    "playwright": "1.65.0",
+    "typescript": "6.0.3",
+    "vite": "8.3.8",
+    "vitest": "5.0.0"
+  },
+  "packageManager": "pnpm@12.6.0"
 }

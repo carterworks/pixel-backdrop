@@ -4,7 +4,7 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/emulated-canvas/element.ts",
+      "path": "dist/emulated-canvas/element.js",
       "declarations": [
         {
           "kind": "class",
@@ -288,10 +288,26 @@
       "exports": [
         {
           "kind": "js",
+          "name": "SHAPES",
+          "declaration": {
+            "name": "SHAPES",
+            "module": "./presenter.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PixelShape",
+          "declaration": {
+            "name": "PixelShape",
+            "module": "./presenter.js"
+          }
+        },
+        {
+          "kind": "js",
           "name": "EmulatedCanvas",
           "declaration": {
             "name": "EmulatedCanvas",
-            "module": "src/emulated-canvas/element.ts"
+            "module": "dist/emulated-canvas/element.js"
           }
         },
         {
@@ -299,14 +315,14 @@
           "name": "emulated-canvas",
           "declaration": {
             "name": "EmulatedCanvas",
-            "module": "src/emulated-canvas/element.ts"
+            "module": "dist/emulated-canvas/element.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/pixel-backdrop/element.ts",
+      "path": "dist/pixel-backdrop/element.js",
       "declarations": [
         {
           "kind": "class",
@@ -459,7 +475,7 @@
           "name": "BackdropDisplay",
           "declaration": {
             "name": "BackdropDisplay",
-            "module": "./display"
+            "module": "./display.js"
           }
         },
         {
@@ -467,7 +483,7 @@
           "name": "DisplayLook",
           "declaration": {
             "name": "DisplayLook",
-            "module": "./display"
+            "module": "./display.js"
           }
         },
         {
@@ -475,7 +491,7 @@
           "name": "BackdropKnobs",
           "declaration": {
             "name": "BackdropKnobs",
-            "module": "./knobs"
+            "module": "./knobs.js"
           }
         },
         {
@@ -483,7 +499,7 @@
           "name": "Toy",
           "declaration": {
             "name": "Toy",
-            "module": "../backdrop-toys/toy"
+            "module": "../backdrop-toys/toy.js"
           }
         },
         {
@@ -491,7 +507,7 @@
           "name": "ToyCanvas",
           "declaration": {
             "name": "ToyCanvas",
-            "module": "../backdrop-toys/toy"
+            "module": "../backdrop-toys/toy.js"
           }
         },
         {
@@ -499,7 +515,7 @@
           "name": "PixelBackdrop",
           "declaration": {
             "name": "PixelBackdrop",
-            "module": "src/pixel-backdrop/element.ts"
+            "module": "dist/pixel-backdrop/element.js"
           }
         },
         {
@@ -507,7 +523,7 @@
           "name": "pixel-backdrop",
           "declaration": {
             "name": "PixelBackdrop",
-            "module": "src/pixel-backdrop/element.ts"
+            "module": "dist/pixel-backdrop/element.js"
           }
         }
       ]

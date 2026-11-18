@@ -1,15 +1,15 @@
 import { globSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
-import { installBackdropDefaults } from "../test/backdrop-defaults";
-import { installSoftCanvas, useFakeFrames } from "../test/toy-canvas";
-import type { Toy } from "../backdrop-toys/toy";
-import { EmulatedCanvas } from "../emulated-canvas/element";
-import { DISPLAYS } from "../test/displays";
-import type { BackdropDisplay } from "./display";
-import "./element";
-import type { PixelBackdrop } from "./element";
-import { readDefaults } from "./knobs";
+import { installBackdropDefaults } from "../test/backdrop-defaults.ts";
+import { installSoftCanvas, useFakeFrames } from "../test/toy-canvas.ts";
+import type { Toy } from "../backdrop-toys/toy.ts";
+import { EmulatedCanvas } from "../emulated-canvas/element.ts";
+import { DISPLAYS } from "../test/displays.ts";
+import type { BackdropDisplay } from "./display.ts";
+import "./element.ts";
+import type { PixelBackdrop } from "./element.ts";
+import { readDefaults } from "./knobs.ts";
 
 const motion = vi.hoisted(() => {
   const listeners = new Set<() => void>();
@@ -39,7 +39,7 @@ const seen = vi.hoisted(() => ({
   log: [] as string[],
 }));
 
-vi.mock("../backdrop-toys", () => {
+vi.mock("../backdrop-toys/index.ts", () => {
   const probe = (id: string, look?: Toy["look"]): Toy => ({
     id,
     label: id,
@@ -590,7 +590,7 @@ test("reset writes each attribute it changes once", async () => {
 
 test("no stylesheet that could style the backdrop blends, as a blend over a changing canvas is re-blended on every present", () => {
   const src = join(import.meta.dirname, "../..");
-  const sheets = globSync("**/*.{css,astro}", { cwd: src });
+  const sheets = globSync("**/*.css", { cwd: src, exclude: ["node_modules/**"] });
   const blending = sheets.filter((file) =>
     readFileSync(join(src, file), "utf8")
       .replace(/\/\*[\s\S]*?\*\/|<!--[\s\S]*?-->/g, "")
