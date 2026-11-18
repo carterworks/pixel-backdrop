@@ -109,6 +109,14 @@ export function relayPointer(canvas: EventTarget): () => void {
     if (grabbed && event.cancelable) event.preventDefault();
   };
 
+  /**
+   * Firefox ignores the stylesheet's `user-select: none` for a press on
+   * `<html>` itself, below a short `<body>`, and selects the page's text.
+   */
+  const onSelectStart = (event: Event) => {
+    if (hold !== undefined) event.preventDefault();
+  };
+
   const onPointerLeave = () =>
     canvas.dispatchEvent(
       new PointerEvent("pointerleave", { pointerType: "mouse" }),
@@ -131,6 +139,7 @@ export function relayPointer(canvas: EventTarget): () => void {
   window.addEventListener("touchend", onTouchEnd, passive);
   window.addEventListener("touchcancel", onTouchEnd, passive);
   document.addEventListener("mouseleave", onPointerLeave, { signal });
+  document.addEventListener("selectstart", onSelectStart, { signal });
 
   return () => {
     release();

@@ -67,6 +67,13 @@ function scrollBlocked() {
   return move.defaultPrevented;
 }
 
+/** Whether a text selection starting on the page would be blocked. */
+function selectionBlocked() {
+  const start = new Event("selectstart", { bubbles: true, cancelable: true });
+  document.body.dispatchEvent(start);
+  return start.defaultPrevented;
+}
+
 const touchEnd = (type: string, touches: Touch[] = []) =>
   document.body.dispatchEvent(new TouchEvent(type, { bubbles: true, touches }));
 
@@ -123,6 +130,16 @@ test("a press in the open reaches the canvas, suppresses selection and clears on
   expect(getSelection()!.isCollapsed).toBe(true);
 });
 
+test("a selection can't start during a hold, wherever the press landed, and can after it", () => {
+  expect(selectionBlocked()).toBe(false);
+
+  press(document.documentElement);
+  expect(selectionBlocked()).toBe(true);
+
+  window.dispatchEvent(new PointerEvent("pointerup", { pointerId: 1 }));
+  expect(selectionBlocked()).toBe(false);
+});
+
 test.each(["a", "main", "header", "button"])(
   "a press on %s never reaches the canvas, grabs or suppresses selection",
   (tag) => {
@@ -135,6 +152,7 @@ test.each(["a", "main", "header", "button"])(
     expect(heard).toEqual([]);
     expect(holding()).toBe(false);
     expect(scrollBlocked()).toBe(false);
+    expect(selectionBlocked()).toBe(false);
   },
 );
 
