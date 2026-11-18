@@ -43,6 +43,32 @@ Set `display` before the element is defined and its first frame is already in it
 - The `--backdrop-*` custom properties in `pixel-backdrop.css` set the defaults.
 - `--backdrop-page-color` is the colour a plain display paints its gaps in.
 
+## Inline
+
+`<emulated-canvas>` works on its own, anywhere in the page:
+
+![Wax on an inline canvas](screenshots/inline.png)
+
+```html
+<emulated-canvas
+  data-width="50"
+  data-height="30"
+  data-scale="5"
+  data-gap="1"
+  data-palette-base="#889d58"
+  data-palette-ink="#263c2b"
+  data-palette-levels="4"
+  style="--emulated-canvas-gap-color: #889d58"
+></emulated-canvas>
+```
+
+```js
+import "@carterworks/pixel-backdrop/emulated-canvas";
+import { wax } from "@carterworks/pixel-backdrop/toys/wax";
+
+wax.start(document.querySelector("emulated-canvas"));
+```
+
 ## Elements
 
 - `<emulated-canvas>` is a canvas stand-in. Draw on it with `getContext("2d")`. It shows the bitmap as magnified cells through a palette, noise and LCD ghosting.
