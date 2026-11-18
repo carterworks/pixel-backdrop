@@ -3,8 +3,8 @@ import {
   installSoftCanvas,
   recordListeners,
   SoftContext,
-} from "../test/toy-canvas";
-import { imageToy } from "./image";
+} from "../test/toy-canvas.ts";
+import { imageToy } from "./image.ts";
 
 const calls: string[] = [];
 const stops: (() => void)[] = [];

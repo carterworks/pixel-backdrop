@@ -1,6 +1,6 @@
-import { mulberry32 } from "../lib/backdrop-noise";
-import { clamp } from "../lib/clamp";
-import { line } from "./line";
+import { mulberry32 } from "../lib/backdrop-noise.ts";
+import { clamp } from "../lib/clamp.ts";
+import { line } from "./line.ts";
 import {
   fixedStep,
   frameLoop,
@@ -8,7 +8,7 @@ import {
   visibleCells,
   type Point,
   type Toy,
-} from "./toy";
+} from "./toy.ts";
 
 /** Land in 10° cells, from 90°N and 180°W. */
 const LAND = [

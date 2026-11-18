@@ -7,7 +7,7 @@ import {
   draw,
   drawRow,
   pixelsShown,
-} from "../../test/emulated-canvas";
+} from "../../test/emulated-canvas.ts";
 
 useFakeCanvas();
 

@@ -3,8 +3,8 @@ import {
   backdropDeclarations,
   backdropDefaults,
   installBackdropDefaults,
-} from "../test/backdrop-defaults";
-import { KNOBS, property, readDefaults } from "./knobs";
+} from "../test/backdrop-defaults.ts";
+import { KNOBS, property, readDefaults } from "./knobs.ts";
 
 const defaults = backdropDefaults();
 const declared = new Map(defaults);

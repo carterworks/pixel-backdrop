@@ -4,8 +4,8 @@ import {
   HORIZON,
   landscape,
   PEAKS,
-} from "../lib/landscape";
-import { TUNED_GRID, visibleCells, type Toy } from "./toy";
+} from "../lib/landscape.ts";
+import { TUNED_GRID, visibleCells, type Toy } from "./toy.ts";
 
 type Scene = (
   seed: number,

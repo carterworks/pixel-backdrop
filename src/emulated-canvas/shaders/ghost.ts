@@ -1,6 +1,6 @@
-import { clamp } from "../../lib/clamp";
-import { MAX_GHOST } from "../limits";
-import type { Shader } from "../shader";
+import { clamp } from "../../lib/clamp.ts";
+import { MAX_GHOST } from "../limits.ts";
+import type { Shader } from "../shader.ts";
 
 const SIXTY_HZ_FRAME_MS = 1000 / 60;
 

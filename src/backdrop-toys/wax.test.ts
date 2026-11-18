@@ -1,7 +1,7 @@
 import { setFlagsFromString } from "node:v8";
 import { runInNewContext } from "node:vm";
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
-import { mulberry32 } from "../lib/backdrop-noise";
+import { mulberry32 } from "../lib/backdrop-noise.ts";
 import {
   installSoftCanvas,
   place,
@@ -9,9 +9,9 @@ import {
   type SoftBitmap,
   useFakeFrames,
   SLOW_TEST_MS,
-} from "../test/toy-canvas";
-import type { Point } from "./toy";
-import { farCells, renderBlobs, wax } from "./wax";
+} from "../test/toy-canvas.ts";
+import type { Point } from "./toy.ts";
+import { farCells, renderBlobs, wax } from "./wax.ts";
 
 vi.setConfig({ testTimeout: SLOW_TEST_MS });
 

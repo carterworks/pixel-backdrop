@@ -1,4 +1,4 @@
-import { line } from "./line";
+import { line } from "./line.ts";
 import {
   fixedStep,
   frameLoop,
@@ -7,7 +7,7 @@ import {
   visibleCells,
   type Point,
   type Toy,
-} from "./toy";
+} from "./toy.ts";
 
 /** White on transparent, so a faint grain lets any page show through. */
 const ALPHAS = [0, 140, 199, 255];

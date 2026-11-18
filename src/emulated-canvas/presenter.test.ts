@@ -4,8 +4,8 @@ import {
   installSoftCanvas,
   SoftContext,
   softStats,
-} from "../test/toy-canvas";
-import { type Geometry, Presenter, SHAPES } from "./presenter";
+} from "../test/toy-canvas.ts";
+import { type Geometry, Presenter, SHAPES } from "./presenter.ts";
 
 const PLAIN: Geometry = {
   scale: 1,

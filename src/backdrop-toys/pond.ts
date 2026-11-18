@@ -1,4 +1,4 @@
-import { clamp } from "../lib/clamp";
+import { clamp } from "../lib/clamp.ts";
 import {
   fixedStep,
   frameLoop,
@@ -6,7 +6,7 @@ import {
   visibleCells,
   type Point,
   type Toy,
-} from "./toy";
+} from "./toy.ts";
 
 /** The gallery tile this was tuned on; every length and speed scales from it. */
 const REFERENCE_CELLS = 64;

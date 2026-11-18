@@ -1,4 +1,4 @@
-import { clamp } from "../lib/clamp";
+import { clamp } from "../lib/clamp.ts";
 import {
   fixedStep,
   cellScale,
@@ -8,7 +8,7 @@ import {
   type CellRect,
   type Point,
   type Toy,
-} from "./toy";
+} from "./toy.ts";
 
 const STAND = [
   "..#..#..",

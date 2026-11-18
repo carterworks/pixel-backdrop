@@ -1,4 +1,4 @@
-import { clamp } from "../lib/clamp";
+import { clamp } from "../lib/clamp.ts";
 
 /**
  * The 2D context a toy draws with: what a plain canvas's and an

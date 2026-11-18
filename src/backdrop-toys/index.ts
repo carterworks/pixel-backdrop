@@ -1,13 +1,13 @@
-import { culture } from "./culture";
-import { crags, horizon, peaks } from "./landscape";
-import { mote } from "./mote";
-import { pinbed } from "./pinbed";
-import { planet } from "./planet";
-import { pond } from "./pond";
-import { shimmer } from "./shimmer";
-import { silt } from "./silt";
-import { wax } from "./wax";
-import type { Toy } from "./toy";
+import { culture } from "./culture.ts";
+import { crags, horizon, peaks } from "./landscape.ts";
+import { mote } from "./mote.ts";
+import { pinbed } from "./pinbed.ts";
+import { planet } from "./planet.ts";
+import { pond } from "./pond.ts";
+import { shimmer } from "./shimmer.ts";
+import { silt } from "./silt.ts";
+import { wax } from "./wax.ts";
+import type { Toy } from "./toy.ts";
 
 /**
  * Every backdrop toy, in menu order; the first is the default.

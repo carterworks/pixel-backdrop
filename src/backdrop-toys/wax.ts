@@ -7,7 +7,7 @@ import {
   type CellRect,
   type Point,
   type Toy,
-} from "./toy";
+} from "./toy.ts";
 
 /**
  * The gallery tile is 48 cells across at about 8 px a cell with 6 blobs. On the

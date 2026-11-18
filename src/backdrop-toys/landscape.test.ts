@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
-import { installSoftCanvas, place, type SoftBitmap } from "../test/toy-canvas";
-import { mulberry32 } from "../lib/backdrop-noise";
-import { crags, horizon, peaks } from "./landscape";
-import type { Toy } from "./toy";
+import { installSoftCanvas, place, type SoftBitmap } from "../test/toy-canvas.ts";
+import { mulberry32 } from "../lib/backdrop-noise.ts";
+import { crags, horizon, peaks } from "./landscape.ts";
+import type { Toy } from "./toy.ts";
 
 const SIZE = 160;
 

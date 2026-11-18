@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { hexRgb, multiplyOverlay, type Rgb } from "./rgb";
+import { hexRgb, multiplyOverlay, type Rgb } from "./rgb.ts";
 
 const BASE: Rgb = [136, 157, 88];
 

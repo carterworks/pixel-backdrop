@@ -9,12 +9,12 @@ import {
   softStats,
   useFakeFrames,
   SLOW_TEST_MS,
-} from "../test/toy-canvas";
-import { mulberry32 } from "../lib/backdrop-noise";
-import { MAX_GHOST } from "../emulated-canvas/limits";
-import "../emulated-canvas/element";
-import { TOYS } from ".";
-import type { Toy, ToyCanvas } from "./toy";
+} from "../test/toy-canvas.ts";
+import { mulberry32 } from "../lib/backdrop-noise.ts";
+import { MAX_GHOST } from "../emulated-canvas/limits.ts";
+import "../emulated-canvas/element.ts";
+import { TOYS } from "./index.ts";
+import type { Toy, ToyCanvas } from "./toy.ts";
 
 vi.setConfig({ testTimeout: SLOW_TEST_MS });
 

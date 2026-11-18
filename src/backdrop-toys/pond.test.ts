@@ -7,10 +7,10 @@ import {
   useExactFrames,
   useFakeFrames,
   SLOW_TEST_MS,
-} from "../test/toy-canvas";
-import { mulberry32 } from "../lib/backdrop-noise";
-import { pond } from "./pond";
-import { visibleCells } from "./toy";
+} from "../test/toy-canvas.ts";
+import { mulberry32 } from "../lib/backdrop-noise.ts";
+import { pond } from "./pond.ts";
+import { visibleCells } from "./toy.ts";
 
 vi.setConfig({ testTimeout: SLOW_TEST_MS });
 

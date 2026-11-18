@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { makeCoarseNoise, makeNoise2D } from "./backdrop-noise";
+import { makeCoarseNoise, makeNoise2D } from "./backdrop-noise.ts";
 
 const SIZE = 160;
 const STEP = 4;

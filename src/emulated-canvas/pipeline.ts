@@ -1,4 +1,4 @@
-import type { Pace, Shader, ShaderFrame, ShaderPass } from "./shader";
+import type { Pace, Shader, ShaderFrame, ShaderPass } from "./shader.ts";
 
 /** How long after a draw a fade over a drifting pass may keep full rate. */
 const DRIFTING_FADE_MS = 1000;

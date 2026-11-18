@@ -1,4 +1,4 @@
-import { isToyPress } from "./press";
+import { isToyPress } from "./press.ts";
 
 /**
  * Set on `<html>` for the length of a hold; the stylesheet turns off text

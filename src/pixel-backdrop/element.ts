@@ -1,15 +1,15 @@
-import "../emulated-canvas/element";
-import type { EmulatedCanvas } from "../emulated-canvas/element";
-import { TOYS } from "../backdrop-toys";
-import type { Toy } from "../backdrop-toys/toy";
-import type { BackdropDisplay } from "./display";
-import { relayPointer } from "./pointer-relay";
-import { readDefaults, type BackdropKnobs, type KnobDefaults } from "./knobs";
-import { resolveKnobs, resolveLook } from "./look";
+import "../emulated-canvas/element.ts";
+import type { EmulatedCanvas } from "../emulated-canvas/element.ts";
+import { TOYS } from "../backdrop-toys/index.ts";
+import type { Toy } from "../backdrop-toys/toy.ts";
+import type { BackdropDisplay } from "./display.ts";
+import { relayPointer } from "./pointer-relay.ts";
+import { readDefaults, type BackdropKnobs, type KnobDefaults } from "./knobs.ts";
+import { resolveKnobs, resolveLook } from "./look.ts";
 
-export type { BackdropDisplay, DisplayLook } from "./display";
-export type { BackdropKnobs } from "./knobs";
-export type { Toy, ToyCanvas } from "../backdrop-toys/toy";
+export type { BackdropDisplay, DisplayLook } from "./display.ts";
+export type { BackdropKnobs } from "./knobs.ts";
+export type { Toy, ToyCanvas } from "../backdrop-toys/toy.ts";
 
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 

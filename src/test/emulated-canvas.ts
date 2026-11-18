@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, vi } from "vitest";
-import "../emulated-canvas/element";
-import type { EmulatedCanvas } from "../emulated-canvas/element";
+import "../emulated-canvas/element.ts";
+import type { EmulatedCanvas } from "../emulated-canvas/element.ts";
 
 /**
  * Fakes for driving `<emulated-canvas>` under happy-dom: a bitmap that only

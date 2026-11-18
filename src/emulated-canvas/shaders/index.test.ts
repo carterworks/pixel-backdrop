@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { SHADERS } from ".";
+import { SHADERS } from "./index.ts";
 
 const files = import.meta.glob<Record<string, unknown>>(
   ["./*.ts", "!./*.test.ts", "!./index.ts"],

@@ -1,6 +1,6 @@
-import { colourRgb } from "../colour";
-import type { Shader } from "../shader";
-import { clamp } from "../../lib/clamp";
+import { colourRgb } from "../colour.ts";
+import type { Shader } from "../shader.ts";
+import { clamp } from "../../lib/clamp.ts";
 
 /**
  * A 4 x 4 Bayer matrix, row by row, as offsets of up to half a step either

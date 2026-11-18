@@ -1,4 +1,4 @@
-import { hexRgb, type Rgb } from "../lib/rgb";
+import { hexRgb, type Rgb } from "../lib/rgb.ts";
 
 let rgbContext: CanvasRenderingContext2D | null | undefined;
 

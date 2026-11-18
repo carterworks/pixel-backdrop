@@ -6,8 +6,8 @@ import {
   type SoftBitmap,
   useFakeFrames,
   SLOW_TEST_MS,
-} from "../test/toy-canvas";
-import { planet } from "./planet";
+} from "../test/toy-canvas.ts";
+import { planet } from "./planet.ts";
 
 vi.setConfig({ testTimeout: SLOW_TEST_MS });
 

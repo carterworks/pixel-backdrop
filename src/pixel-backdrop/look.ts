@@ -1,7 +1,7 @@
-import { hexRgb, multiplyOverlay, type Rgb } from "../lib/rgb";
-import type { BackdropDisplay } from "./display";
-import { type Look, TUNED_GRID, type Toy } from "../backdrop-toys/toy";
-import type { BackdropKnobs, KnobDefaults } from "./knobs";
+import { hexRgb, multiplyOverlay, type Rgb } from "../lib/rgb.ts";
+import type { BackdropDisplay } from "./display.ts";
+import { type Look, TUNED_GRID, type Toy } from "../backdrop-toys/toy.ts";
+import type { BackdropKnobs, KnobDefaults } from "./knobs.ts";
 
 export type LookInput = {
   /** The knobs' defaults, from the `--backdrop-*` custom properties. */

@@ -1,6 +1,6 @@
-import { clamp } from "../lib/clamp";
-import { line } from "./line";
-import { frameLoop, pointOn, TUNED_GRID, type Point, type Toy } from "./toy";
+import { clamp } from "../lib/clamp.ts";
+import { line } from "./line.ts";
+import { frameLoop, pointOn, TUNED_GRID, type Point, type Toy } from "./toy.ts";
 
 const MAX_RIPPLES = 24;
 /** A ring's largest radius, in pixels at the tuned width. */

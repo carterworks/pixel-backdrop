@@ -1,4 +1,4 @@
-import { clamp } from "../lib/clamp";
+import { clamp } from "../lib/clamp.ts";
 import {
   cellScale,
   fixedStep,
@@ -8,7 +8,7 @@ import {
   visibleCells,
   type CellRect,
   type Toy,
-} from "./toy";
+} from "./toy.ts";
 
 /**
  * The prototype tile was tuned at 48 cells across about 360 px. Radii and

@@ -6,7 +6,7 @@ import {
   pointOn,
   sameRect,
   visibleCells,
-} from "./toy";
+} from "./toy.ts";
 
 afterEach(() => {
   vi.useRealTimers();

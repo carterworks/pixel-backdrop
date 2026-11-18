@@ -1,4 +1,4 @@
-import { makeNoise2D, mulberry32 } from "./backdrop-noise";
+import { makeNoise2D, mulberry32 } from "./backdrop-noise.ts";
 
 export type Grid = { columns: number; rows: number; cells: Float32Array };
 

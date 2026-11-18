@@ -6,8 +6,8 @@ import {
   pointerAt,
   type SoftBitmap,
   useFakeFrames,
-} from "../test/toy-canvas";
-import { shimmer } from "./shimmer";
+} from "../test/toy-canvas.ts";
+import { shimmer } from "./shimmer.ts";
 
 let canvas: HTMLCanvasElement;
 let bitmap: () => SoftBitmap;

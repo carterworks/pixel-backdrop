@@ -6,9 +6,9 @@ import {
   type SoftBitmap,
   useFakeFrames,
   SLOW_TEST_MS,
-} from "../test/toy-canvas";
-import { mulberry32 } from "../lib/backdrop-noise";
-import { pinbed } from "./pinbed";
+} from "../test/toy-canvas.ts";
+import { mulberry32 } from "../lib/backdrop-noise.ts";
+import { pinbed } from "./pinbed.ts";
 
 vi.setConfig({ testTimeout: SLOW_TEST_MS });
 

@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, expect, test } from "vitest";
-import { relayPointer } from "./pointer-relay";
+import { relayPointer } from "./pointer-relay.ts";
 
 const TYPES = [
   "pointerdown",

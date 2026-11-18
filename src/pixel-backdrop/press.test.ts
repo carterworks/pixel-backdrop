@@ -1,5 +1,5 @@
 import { afterEach, expect, test } from "vitest";
-import { isToyPress } from "./press";
+import { isToyPress } from "./press.ts";
 
 afterEach(() => document.body.replaceChildren());
 

@@ -1,4 +1,4 @@
-import { line } from "./line";
+import { line } from "./line.ts";
 import {
   fixedStep,
   frameLoop,
@@ -8,7 +8,7 @@ import {
   type CellRect,
   type Point,
   type Toy,
-} from "./toy";
+} from "./toy.ts";
 
 /**
  * The gallery tile this toy was tuned in draws cells about 6 px wide, 240 of

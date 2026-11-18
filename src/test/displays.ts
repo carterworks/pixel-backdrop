@@ -1,4 +1,4 @@
-import type { BackdropDisplay } from "../pixel-backdrop/display";
+import type { BackdropDisplay } from "../pixel-backdrop/display.ts";
 
 /** A display of every kind: plain in each scheme, and panels between them setting every look field. */
 export const DISPLAYS = {

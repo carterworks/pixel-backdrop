@@ -1,5 +1,5 @@
-import { clamp } from "../lib/clamp";
-import { visibleCells, type Toy } from "./toy";
+import { clamp } from "../lib/clamp.ts";
+import { visibleCells, type Toy } from "./toy.ts";
 
 /** The share of pixels at each end of the luma that the stretch clips. */
 const CLIP = 0.01;

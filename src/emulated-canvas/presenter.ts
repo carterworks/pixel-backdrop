@@ -1,5 +1,5 @@
-import { multiplyOverlay, type Rgb } from "../lib/rgb";
-import { colourRgb } from "./colour";
+import { multiplyOverlay, type Rgb } from "../lib/rgb.ts";
+import { colourRgb } from "./colour.ts";
 
 /** Every cell form, the default first. */
 export const SHAPES = [

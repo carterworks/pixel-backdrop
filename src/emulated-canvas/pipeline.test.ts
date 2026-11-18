@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
-import { Pipeline } from "./pipeline";
-import type { Pace, Shader, ShaderFrame } from "./shader";
+import { Pipeline } from "./pipeline.ts";
+import type { Pace, Shader, ShaderFrame } from "./shader.ts";
 
 const FRAME: ShaderFrame = { width: 2, height: 1, elapsedMs: 16 };
 

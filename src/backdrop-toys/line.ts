@@ -1,4 +1,4 @@
-import type { Point } from "./toy";
+import type { Point } from "./toy.ts";
 
 /** Visits every cell on the line between two cells, ends included. */
 export function line(

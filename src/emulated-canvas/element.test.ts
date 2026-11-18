@@ -4,11 +4,11 @@ import {
   installSoftCanvas,
   SoftContext,
   softStats,
-} from "../test/toy-canvas";
-import { EmulatedCanvas } from "./element";
-import { Presenter, SHAPES } from "./presenter";
-import { SHADERS } from "./shaders";
-import { noise } from "./shaders/noise";
+} from "../test/toy-canvas.ts";
+import { EmulatedCanvas } from "./element.ts";
+import { Presenter, SHAPES } from "./presenter.ts";
+import { SHADERS } from "./shaders/index.ts";
+import { noise } from "./shaders/noise.ts";
 import {
   display,
   FILLED,
@@ -22,7 +22,7 @@ import {
   fadingFromWhite,
   square,
   drawRow,
-} from "../test/emulated-canvas";
+} from "../test/emulated-canvas.ts";
 
 useFakeCanvas();
 
@@ -408,7 +408,7 @@ describe("the shadow's cast", () => {
 
 test("importing the module again does not redefine the element", async () => {
   vi.resetModules();
-  await expect(import("./element")).resolves.toBeDefined();
+  await expect(import("./element.ts")).resolves.toBeDefined();
 });
 
 test("the context is available before the element is connected", () => {

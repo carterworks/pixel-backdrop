@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { TOYS } from ".";
+import { TOYS } from "./index.ts";
 
 const files = import.meta.glob<Record<string, unknown>>(
   [

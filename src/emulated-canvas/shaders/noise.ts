@@ -4,9 +4,9 @@ import {
   NOISE_OFFSET_X,
   NOISE_OFFSET_Y,
   NOISE_SEED,
-} from "../../lib/backdrop-noise";
-import { clamp } from "../../lib/clamp";
-import type { Shader } from "../shader";
+} from "../../lib/backdrop-noise.ts";
+import { clamp } from "../../lib/clamp.ts";
+import type { Shader } from "../shader.ts";
 
 /**
  * The noise is sampled at most this many pixels apart and filled in between.

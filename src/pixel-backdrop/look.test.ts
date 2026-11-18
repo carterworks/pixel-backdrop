@@ -1,12 +1,12 @@
 import { isDeepStrictEqual } from "node:util";
 import { expect, test } from "vitest";
-import { DISPLAYS } from "../test/displays";
-import type { BackdropDisplay, DisplayLook } from "./display";
-import type { Toy } from "../backdrop-toys/toy";
-import { EmulatedCanvas } from "../emulated-canvas/element";
-import { SHAPES as CANVAS_SHAPES } from "../emulated-canvas/presenter";
-import { KNOBS, type BackdropKnobs, type KnobDefaults } from "./knobs";
-import { resolveLook, type LookInput, type ResolvedLook } from "./look";
+import { DISPLAYS } from "../test/displays.ts";
+import type { BackdropDisplay, DisplayLook } from "./display.ts";
+import type { Toy } from "../backdrop-toys/toy.ts";
+import { EmulatedCanvas } from "../emulated-canvas/element.ts";
+import { SHAPES as CANVAS_SHAPES } from "../emulated-canvas/presenter.ts";
+import { KNOBS, type BackdropKnobs, type KnobDefaults } from "./knobs.ts";
+import { resolveLook, type LookInput, type ResolvedLook } from "./look.ts";
 
 /** Each value apart from every source that can stand in for it, so a case shows which one won. */
 const DEFAULTS: KnobDefaults = {
