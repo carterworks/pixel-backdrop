@@ -3,11 +3,13 @@ import {
   NOISE_OFFSET_X,
   NOISE_OFFSET_Y,
   NOISE_SEED,
-} from "../lib/backdrop-noise";
-import { Pipeline } from "./pipeline";
-import { type PixelShape, Presenter, SHAPES } from "./presenter";
-import type { Pace, ShaderFrame } from "./shader";
-import { SHADERS } from "./shaders";
+} from "../lib/backdrop-noise.ts";
+import { Pipeline } from "./pipeline.ts";
+import { type PixelShape, Presenter, SHAPES } from "./presenter.ts";
+import type { Pace, ShaderFrame } from "./shader.ts";
+import { SHADERS } from "./shaders/index.ts";
+
+export { SHAPES, type PixelShape } from "./presenter.ts";
 
 /** `OffscreenCanvas.getContext` is overloaded, so calls with a union id need help. */
 function getInnerContext(
