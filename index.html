@@ -30,9 +30,13 @@
         padding: 1.25rem 1.5rem;
         position: relative;
       }
-      h1 {
+      h1,
+      h2 {
         font-size: inherit;
         margin: 0;
+      }
+      h2 {
+        margin-block-start: 1.5rem;
       }
       p {
         margin: 0 0 1rem;
@@ -50,6 +54,11 @@
       select {
         background: transparent;
         border: 1px solid currentColor;
+      }
+      #inline {
+        --emulated-canvas-gap-color: #889d58;
+        margin-block: 0.5rem;
+        touch-action: none;
       }
       code {
         display: block;
@@ -70,9 +79,27 @@
     <main>
       <h1>pixel-backdrop</h1>
       <p>Canvas toys on an emulated LCD.</p>
+      <h2>Backdrop</h2>
       <label>Toy <select id="toy"></select></label>
       <label>Display <select id="display"></select></label>
       <label>Shape <select id="shape"></select></label>
+      <h2>Inline</h2>
+      <emulated-canvas
+        id="inline"
+        data-width="50"
+        data-height="30"
+        data-scale="5"
+        data-gap="1"
+        data-shadow="25"
+        data-shadow-x="2"
+        data-shadow-y="2"
+        data-palette-base="#889d58"
+        data-palette-ink="#263c2b"
+        data-palette-levels="4"
+        data-ghost-rise="45"
+        data-ghost-fall="30"
+      ></emulated-canvas>
+      <label>Toy <select id="inline-toy"></select></label>
       <code>npm i @carterworks/pixel-backdrop</code>
       <a href="https://github.com/carterworks/pixel-backdrop">GitHub</a>
     </main>
@@ -122,15 +149,29 @@
       };
 
       const backdrop = document.querySelector("pixel-backdrop");
-      const [toy, display, shape] = ["toy", "display", "shape"].map((id) =>
-        document.getElementById(id),
-      );
+      const [toy, display, shape, inline, inlineToy] = [
+        "toy",
+        "display",
+        "shape",
+        "inline",
+        "inline-toy",
+      ].map((id) => document.getElementById(id));
       const fill = (select, entries) =>
         select.append(...entries.map(([value, label]) => new Option(label, value)));
 
       fill(toy, TOYS.map(({ id, label }) => [id, label]));
       fill(display, Object.keys(DISPLAYS).map((name) => [name, name]));
       fill(shape, SHAPES.map((name) => [name, name]));
+      fill(inlineToy, TOYS.map(({ id, label }) => [id, label]));
+      inlineToy.value = "wax";
+
+      let stopInline = () => {};
+      const play = (id) => {
+        inline.transition();
+        stopInline();
+        stopInline = TOYS.find((toy) => toy.id === id).start(inline);
+      };
+      play(inlineToy.value);
 
       const show = (name) => {
         const { base, ink } = DISPLAYS[name];
@@ -143,6 +184,7 @@
       toy.onchange = () => backdrop.setToy(toy.value);
       display.onchange = () => show(display.value);
       shape.onchange = () => backdrop.configure({ shape: shape.value });
+      inlineToy.onchange = () => play(inlineToy.value);
 
       await import("./dist/pixel-backdrop/element.js");
     </script>
