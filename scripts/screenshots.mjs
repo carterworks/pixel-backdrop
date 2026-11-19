@@ -24,7 +24,8 @@ for (const shot of SHOTS) {
   await page.screenshot({ path: join(root, "screenshots", `${shot.toy}.png`) });
 }
 await page.locator("main").evaluate((main) => (main.hidden = false));
-await page.selectOption("#inline-toy", "wax");
+await page.selectOption("#display", "panel");
+await page.selectOption("#toy", "wax");
 await page.waitForTimeout(3000);
 await page.locator("#inline").screenshot({ path: join(root, "screenshots", "inline.png") });
 await browser.close();

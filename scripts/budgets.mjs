@@ -108,17 +108,23 @@ const hover = (ms) => {
 
 const server = serve();
 const browser = await chromium.launch({ channel: "chromium" });
-/** A fresh demo page, its clock paused once the backdrop is defined. */
-const open = async () => {
+/**
+ * A fresh demo page on `display`, its clock paused once the backdrop is
+ * defined. The inline canvas follows the settings but not the backdrop's own
+ * toy, so a still toy chosen there, settled by the jump ahead, leaves every
+ * later frame's work to the backdrop. It is not `toy`, which then starts
+ * afresh on the backdrop.
+ */
+const open = async (display, toy) => {
   const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
   page.on("pageerror", (error) => console.error(error));
   await page.addInitScript(instrument);
   await page.clock.install({ time: 0 });
   await page.goto(server.url);
   await page.waitForFunction(() => customElements.get("pixel-backdrop"));
-  // The inline canvas draws only on its own, so a still toy there, settled
-  // by the jump ahead, leaves every frame's work to the backdrop.
-  await page.selectOption("#inline-toy", "peaks");
+  await page.selectOption("#shape", "square");
+  if (display) await page.selectOption("#display", display);
+  await page.selectOption("#toy", toy === "peaks" ? "crags" : "peaks");
   await page.clock.pauseAt(10_000);
   return page;
 };
@@ -135,10 +141,8 @@ const rows = [];
 for (const display of displays) {
   for (const toy of toys) {
     await page.close();
-    page = await open();
-    await page.selectOption("#shape", "square");
-    await page.selectOption("#display", display);
-    await page.selectOption("#toy", toy);
+    page = await open(display, toy);
+    await page.evaluate((id) => document.querySelector("pixel-backdrop").setToy(id), toy);
     await page.evaluate(hover, 500);
     await page.clock.runFor(500);
     await page.evaluate(() => __canvasWork.splice(0));
