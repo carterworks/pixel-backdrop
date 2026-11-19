@@ -1,3 +1,4 @@
+import { join } from "node:path";
 import { vi } from "vitest";
 
 /**
@@ -344,10 +345,14 @@ const LARGE_ARRAY = 64;
 const fromDependency = () =>
   (new Error().stack?.split("\n")[3] ?? "").includes("node_modules");
 
+const TOY_CODE = ["../backdrop-toys/", "../lib/"].map((folder) =>
+  join(import.meta.dirname, folder),
+);
+
 /**
  * Records the listeners a toy adds, on any target, until `restore`, each with
  * the signal it was given. A toy may run only its own folder's code and
-^ * `src/lib` (the architecture test holds it to that), so a listener counts
+ * `src/lib` (the architecture test holds it to that), so a listener counts
  * when the code adding it is there: one added by happy-dom (a signal's own
  * `abort` wiring), the canvas element or `src/test` never is.
  */
@@ -372,7 +377,7 @@ export function recordListeners() {
       ) {
         // Frames: this, its caller.
         const caller = new Error().stack?.split("\n")[2] ?? "";
-        if (/\/pixel-backdrop\/src\/(backdrop-toys|lib)\//.test(caller)) {
+        if (TOY_CODE.some((folder) => caller.includes(folder))) {
           const signal =
             typeof options === "object" ? options.signal : undefined;
           added.push({ target: this, type, signal });
