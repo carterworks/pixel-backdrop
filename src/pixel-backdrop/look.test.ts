@@ -534,3 +534,14 @@ test.each([
     expect(resolve(input).data.paletteInvert).toBe(invert);
   },
 );
+
+test.each(
+  Object.entries(DISPLAYS).flatMap(([name, display]) =>
+    "look" in display ? [[name, display.look] as const] : [],
+  ),
+)("%s's ghost stays below 100, so the panel never freezes", (_, look) => {
+  for (const ghost of [look.ghostRise, look.ghostFall]) {
+    expect(ghost).toBeGreaterThanOrEqual(0);
+    expect(ghost).toBeLessThan(100);
+  }
+});

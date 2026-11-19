@@ -93,6 +93,7 @@ pnpm install
 pnpm verify       # types, tests, manifest
 pnpm build        # dist/
 pnpm screenshots  # screenshots/
+pnpm budgets      # canvas work per frame on the demo, in Chromium
 ```
 
 ## License
