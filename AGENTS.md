@@ -1,1 +1,2 @@
 - Follow [Conventional Commits](https://www.conventionalcommits.org/) for every commit message.
+- `src/test/architecture.test.ts` holds the layers: toys (`src/backdrop-toys/`) and `<emulated-canvas>` (`src/emulated-canvas/`) never import each other, and `<pixel-backdrop>` (`src/pixel-backdrop/`) imports both. Never widen a layer's `imports` to make it pass without the owner's say, as that is the only thing keeping the layers apart.
