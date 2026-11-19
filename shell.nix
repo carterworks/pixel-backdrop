@@ -1,5 +1,6 @@
 # Playwright's Chromium is a generic Linux build, so on NixOS nix-ld has to be
-# told where its libraries are: `nix-shell --run "pnpm screenshots"`.
+# told where its libraries are: `nix-shell --run "pnpm screenshots"` (or
+# `pnpm budgets`).
 {
   pkgs ? import <nixpkgs> { },
 }:

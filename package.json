@@ -38,6 +38,7 @@
     "check": "tsc",
     "test": "vitest run",
     "screenshots": "pnpm build && node scripts/screenshots.mjs",
+    "budgets": "pnpm build && node scripts/budgets.mjs",
     "verify": "pnpm check && pnpm test && pnpm analyze && git diff --exit-code -- custom-elements.json",
     "prepublishOnly": "pnpm verify && pnpm build"
   },
